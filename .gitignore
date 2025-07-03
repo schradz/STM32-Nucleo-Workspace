@@ -1,0 +1,16 @@
+# Build artifacts
+/Debug/
+/Release/
+/*.o
+/*.d
+/*.elf
+/*.map
+/*.hex
+/*.bin
+
+# Eclipse/CubeIDE specific files (can often be regenerated)
+/.metadata/
+/.settings/
+/.cproject
+/.project
+/.mxproject
