@@ -57,7 +57,8 @@ BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ART
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: main-build
+all:
+	+@$(MAKE) --no-print-directory main-build && $(MAKE) --no-print-directory post-build
 
 # Main-build Target
 main-build: UnitTests
@@ -75,6 +76,10 @@ clean:
 	-$(RM) UnitTests
 	-@echo ' '
 
-.PHONY: all clean dependents main-build
+post-build:
+	-/home/schradz/STM32-Nucleo-Workspace/UnitTests/Debug/UnitTests
+	-@echo ' '
+
+.PHONY: all clean dependents main-build post-build
 
 -include ../makefile.targets
